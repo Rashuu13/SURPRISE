@@ -708,7 +708,9 @@ function init() {
   buildBook();
   wireBookControls();
 
-  downloadPdfBtn.addEventListener("click", downloadPdf);
+  if (downloadPdfBtn) {
+    downloadPdfBtn.addEventListener("click", downloadPdf);
+  }
   resetAffirmationSequence();
   setupLoveLetterObserver();
 
