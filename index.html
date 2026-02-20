@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Manga Flipbook</title>
+  <meta name="description" content="A birthday manga flipbook with a surprise mini game." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hero">
+    <p class="eyebrow">For (Y)our Birthday</p>
+    <h1>A Manga Made With Love</h1>
+    <p class="hero-copy">
+      Flip through all 12 pages like a real book, then unlock your surprise challenge.
+    </p>
+    <div class="hero-actions">
+      <a href="#book-section" class="btn btn-primary">Open The Book</a>
+      <button id="downloadPdfBtn" class="btn btn-ghost" type="button">Download As PDF</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="book-section" class="panel book-panel">
+      <div class="panel-header">
+        <h2>Flipbook Reader</h2>
+      </div>
+
+      <div class="book-stage">
+        <div class="book-shell">
+          <div id="book" class="book" aria-label="Manga flipbook"></div>
+          <button id="prevZone" class="flip-zone flip-zone-left" type="button" aria-label="Flip previous page"><<</button>
+          <button id="nextZone" class="flip-zone flip-zone-right" type="button" aria-label="Flip next page">>></button>
+        </div>
+      </div>
+
+      <div class="book-controls">
+        <button id="prevBtn" class="btn btn-small" type="button">Previous</button>
+        <input id="pageSlider" type="range" min="0" max="12" value="0" aria-label="Page progress" />
+        <button id="nextBtn" class="btn btn-small" type="button">Next</button>
+      </div>
+      <p id="pageCounter" class="page-counter">Page 1 of 12</p>
+    </section>
+
+    <section id="game-section" class="panel game-panel">
+      <div class="panel-header">
+        <h2>Surprise Game: Love Code Runner</h2>
+        <p>
+          Catch floating letters in order to spell <strong>ILOVERASHU</strong> before you run out of lives.
+        </p>
+      </div>
+
+      <div class="game-stats">
+        <p><span class="label">Target:</span> <span id="targetWord">ILOVERASHU</span></p>
+        <p><span class="label">Progress:</span> <span id="progressWord">_ _ _ _ _ _ _ _ _ _ _ _ _</span></p>
+        <p><span class="label">Lives:</span> <span id="lives">3</span></p>
+      </div>
+
+      <div id="gameArea" class="game-area" aria-live="polite"></div>
+
+      <div class="game-actions">
+        <button id="startGameBtn" class="btn btn-primary" type="button">Start Game</button>
+        <button id="resetGameBtn" class="btn btn-ghost" type="button">Reset</button>
+      </div>
+
+      <p id="gameMessage" class="game-message">Press Start when ready.</p>
+
+    </section>
+
+    <section id="loveLetterSection" class="panel love-letter-panel" hidden>
+      <div class="panel-header">
+        <h2>A Letter For You</h2>
+      </div>
+      <article id="loveLetter" class="love-letter">
+        <h3>To The Love Of My Life</h3>
+        <p>
+          You are my safest place, my best memory, and my favorite part of every day.
+          Thank you for being patient with me, laughing with me, and choosing me in all the little moments.
+        </p>
+        <p>
+          I love your heart, your mind, your smile, and even the way you turn ordinary days into something special.
+          You make me feel seen, understood, and deeply loved.
+        </p>
+        <p>
+          I am proud of you, I believe in you, and I will always be on your side.
+          No matter how life changes, I want to keep growing with you and building a life full of warmth, peace, and joy.
+        </p>
+        <p>
+          Happy Birthday, my love. I love you so much. More than words, more than distance, more than time.
+          Always yours.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <div id="globalAffirmations" class="global-affirmations" aria-hidden="true"></div>
+
+  <template id="confettiTemplate">
+    <span class="confetti-piece"></span>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="scripts/app.js" defer></script>
+</body>
+</html>
